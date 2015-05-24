@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="US-ASCII">
-<title>siw-mvc-es2</title>
+<title>Esame-SIW-2015-LQ</title>
 </head>
 <body>
-<h1>siw-mvc-es2</h1>
+<h1>E-commerce LQ</h1>
 <ul>
-<li><a href="<c:url value="/newProduct.jsp" />">Inserisci un Nuovo Prodotto</a></li>
-<li><a href="<c:url value="/controller/product.list" />">Mostra tutti i Prodotti</a></li>
+<li><a href="<c:url value="/newProdotto.jsp" />">Inserisci un Nuovo Prodotto</a></li>
+<li><a href="<c:url value="/controller/prodotto.list" />">Mostra tutti i Prodotti</a></li>
 </ul>
 ${action}
 </body>

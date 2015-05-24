@@ -15,10 +15,10 @@
 		<th>Nome</th>
 		<th>Prezzo</th>
 	</tr>
-	<c:forEach var="product" items="${products}">
+	<c:forEach var="prodotto" items="${prodotti}">
 		<tr>
-			<td><a href="<c:url value="/controller/product.get?id=${product.id}" />">${product.name}</a></td>
-			<td>${product.price}</td>
+			<td><a href="<c:url value="/controller/product.get?id=${prodotto.prezzo}" />">${prodotto.nome}</a></td>
+			<td>${prodotto.prezzo}</td>
 		</tr>
 	</c:forEach>
 </table>

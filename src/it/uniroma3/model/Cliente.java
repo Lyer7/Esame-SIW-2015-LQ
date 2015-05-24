@@ -1,49 +1,92 @@
 package it.uniroma3.model;
 
-
 import javax.persistence.*;
 
 import java.util.*;
 
 @Entity
-@Table(name="Tabella_Clienti")
+@Table(name="Tabella_Cliente")
 @NamedQuery(name = "findAllClienti", query = "SELECT c FROM Cliente c")
 public class Cliente {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(nullable = false)
-    private String nome;
-
-    @Column(nullable = false)
-    private String cognome;
-
-    @Column(nullable = false)
-    private String email;
-
+	
+	@Column(nullable=false)
+	private String nickname;
+	
+	@Column(nullable=false)
+	private String nome;
+	
+	@Column(nullable=false)
+	private String cognome;
+	
+	@Column(nullable=false)
+	private String email;
+	
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date dataDiNasciata;
+    private Date dataDiNascita;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataDiRegistrazione;
+    
+    public Cliente(){}
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private Indirizzo indirizzo;
+	public Cliente(String nickname, String nome, String cognome, String email){
+		this.nickname = nickname;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+	}
+	
+	/* Getters and Setters */
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private List<Ordine> ordini;
+	public String getNickname() {
+		return nickname;
+	}
 
-    public Cliente() {}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
-    public Cliente(String nome, String cognome, String email, Date dataDiNascita){
-    	this.nome = nome;
-    	this.cognome = cognome;
-    	this.email = email;
-    	this.dataDiNascita = dataDiNascita;
-    }
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getDataDiNascita() {
+		return dataDiNascita;
+	}
+
+	public void setDataDiNascita(Date dataDiNascita) {
+		this.dataDiNascita = dataDiNascita;
+	}
+
+	public Date getDataDiRegistrazione() {
+		return dataDiRegistrazione;
+	}
+
+	public void setDataDiRegistrazione(Date dataDiRegistrazione) {
+		this.dataDiRegistrazione = dataDiRegistrazione;
+	}
+	
 
 }

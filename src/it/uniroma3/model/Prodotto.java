@@ -30,16 +30,28 @@ public class Prodotto {
 
 	public Prodotto() {}
 
-	public Prodotto(String nome, String codice, String descrizione, Float prezzo, int qtaMagazzino) {
+	public Prodotto(String nome, String codice, String descrizione, Float prezzo) {
 		this.nome = nome;
 		this.codice = codice;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
-		this.qtaMagazzino = qtaMagazzino;
 	}
 
 
 	/* Getters and Setters */
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setQtaMagazzino(Integer qtaMagazzino) {
+		this.qtaMagazzino = qtaMagazzino;
+	}
+
 
 	public String getNome() {
 		return this.nome;
