@@ -7,6 +7,17 @@
 <head>
 	<meta charset="ISO-8859-1" />
 	<title>Nuovo Prodotto</title>
+	<style>
+body {
+	background-image: url("imgs/siw-ecommlq-background.png");
+}
+
+div {
+	text-align: center;
+	font-size: 200%;
+	color: rgb(255, 0, 0);
+}
+</style>
 </head>
 <body>
 	<form action="<c:url value="/controller/product.create" />" method="get">
