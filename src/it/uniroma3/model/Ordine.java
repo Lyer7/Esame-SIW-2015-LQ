@@ -17,7 +17,13 @@ public class Ordine {
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date creationTime;
+	private Date dataCreazione;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataChiusura;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataEvasione;
 
 	@ManyToOne
 	private Cliente cliente;
@@ -25,7 +31,10 @@ public class Ordine {
 	@OneToMany(mappedBy = "ordine", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<RigaOrdine> righeOrdine;
 
-	public Ordine() {}
+	public Ordine(Cliente cliente) {
+		this.cliente= cliente;
+		this.dataCreazione= new Date();
+	}
 
 	// Getters and Setters
 
@@ -37,12 +46,12 @@ public class Ordine {
 		this.id = id;
 	}
 
-	public Date getCreationTime() {
-		return creationTime;
+	public Date getDataCreazione() {
+		return dataCreazione;
 	}
 
-	public void setCreationTime(Date creationTime) {
-		this.creationTime = creationTime;
+	public void setDataCreazione(Date dataCreazione) {
+		this.dataCreazione = dataCreazione;
 	}
 
 	public Cliente getCliente() {
@@ -59,6 +68,22 @@ public class Ordine {
 
 	public void setRigheOrdini(List<RigaOrdine> righeOrdine) {
 		this.righeOrdine = righeOrdine;
+	}
+
+	public Date getDataChiusura() {
+		return dataChiusura;
+	}
+
+	public void setDataChiusura(Date dataChiusura) {
+		this.dataChiusura = dataChiusura;
+	}
+
+	public Date getDataEvasione() {
+		return dataEvasione;
+	}
+
+	public void setDataEvasione(Date dataEvasione) {
+		this.dataEvasione = dataEvasione;
 	}
 
 

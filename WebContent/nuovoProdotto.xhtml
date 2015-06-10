@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>e-commerce</title>
+</h:head>
+<h:body>
+	<h1>Aggiungi nuovo prodotto</h1>
+	<h:form>
+		<div>
+			Nome:
+			<h:inputText value="#{controllerProdotto.nome}" required="true"
+				requiredMessage="campo obbligatorio" id="nome">
+			</h:inputText>
+			<h:message for="nome" styleClass="error" />
+		</div>
+		<div>
+			Codice:
+			<h:inputText value="#{controllerProdotto.codice}" required="true"
+				requiredMessage="campo obbligatorio"
+				validatorMessage="Code: min 6 max 10 characters" id="codice">
+			</h:inputText>
+			<h:message for="codice" styleClass="error" />
+		</div>
+		<div>
+			Descrizione:
+			<h:inputTextarea rows="6" value="#{controllerProdotto.descrizione}"
+				id="descrizione">
+			</h:inputTextarea>
+		</div>
+		<div>
+			Prezzo:
+			<h:inputText value="#{controllerProdotto.prezzo}" required="true"
+				requiredMessage="campo obbligatorio" id="prezzo">
+			</h:inputText>
+			<h:message for="prezzo" styleClass="error" />
+		</div>
+		<div>
+			<h:commandButton id="submit" value="invia" action= "confermaProdotto"/>
+		</div>
+
+	</h:form>
+</h:body>
+</html>

@@ -9,8 +9,12 @@ import java.util.*;
 @NamedQuery(name = "findAllClienti", query = "SELECT c FROM Cliente c")
 public class Cliente {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	@Column(nullable=false)
-	private String nickname;
+	private Indirizzo indirizzo;
 	
 	@Column(nullable=false)
 	private String nome;
@@ -31,21 +35,22 @@ public class Cliente {
     
     public Cliente(){}
 
-	public Cliente(String nickname, String nome, String cognome, String email){
-		this.nickname = nickname;
+	public Cliente(String nome, String cognome,Indirizzo indirizzo, String email){
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
+		this.indirizzo= indirizzo;
+		
 	}
 	
 	/* Getters and Setters */
 
-	public String getNickname() {
-		return nickname;
+	public Indirizzo getIndirizzo() {
+		return indirizzo;
 	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setIndirizzo(Indirizzo indirizzo) {
+		this.indirizzo = indirizzo;
 	}
 
 	public String getNome() {
