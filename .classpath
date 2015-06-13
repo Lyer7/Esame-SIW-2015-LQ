@@ -14,5 +14,7 @@
 			<attribute name="owner.project.facets" value="jst.jsf"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF 2.2 (Mojarra 2.2.0)"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenJPA Libraries"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
