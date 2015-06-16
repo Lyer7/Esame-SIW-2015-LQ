@@ -1,21 +1,13 @@
 package it.uniroma3.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import it.uniroma3.model.Cliente;
-import it.uniroma3.model.Fornitore; 
 
 @Entity
-@Table(name="Tabella_Indirizzi")
 @NamedQuery(name = "findAllIndirizzi", query = "SELECT i FROM Indirizzo i")
 public class Indirizzo {
 
@@ -38,15 +30,13 @@ public class Indirizzo {
     @Column(nullable = false)
     private String stato;
 
-    @OneToOne(mappedBy = "indirizzo", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
-    private Cliente cliente;
-
-    @OneToOne(mappedBy = "indirizzo", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
-    private Fornitore fornitore;
-
-    public Indirizzo() {}
-    
-    /* Getters and Setters */
+    public Indirizzo(String via, String citta, String regione, String codicePostale, String stato) {
+    	this.via = via;
+    	this.citta = citta;
+    	this.regione = regione;
+    	this.codicePostale = codicePostale;
+    	this.stato = stato;
+    }
 
 	public Long getId() {
 		return id;
@@ -94,22 +84,6 @@ public class Indirizzo {
 
 	public void setStato(String stato) {
 		this.stato = stato;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Fornitore getFornitore() {
-		return fornitore;
-	}
-
-	public void setFornitore(Fornitore fornitore) {
-		this.fornitore = fornitore;
 	}
 
 }

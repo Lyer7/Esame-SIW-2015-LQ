@@ -11,14 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import it.uniroma3.model.Indirizzo;
 import it.uniroma3.model.Prodotto;
 
 
 @Entity
-@Table(name="Tabella_Fornitori")
 @NamedQuery(name = "findAllFornitori", query = "SELECT f FROM Fornitori f")
 public class Fornitore {
 	
@@ -41,10 +39,7 @@ public class Fornitore {
     @ManyToMany
 	private List<Prodotto> prodotti;
     
-
     public Fornitore() {}
-    
-   // Getters and Setters
 
 	public Long getId() {
 		return id;

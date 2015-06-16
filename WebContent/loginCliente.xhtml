@@ -1,0 +1,38 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Login Utente</title>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+	<h1>Accedi</h1>
+	<h:form>
+		<div>
+			Qual è il tuo indirizzo e-mail?
+			<h:inputText value="#{controllerCliente.email}" required="true"
+				requiredMessage="Campo obbligatorio" id="email">
+			</h:inputText>
+			<h:message for="email" styleClass="error" />
+		</div>
+		<div>
+			Hai già una password?
+			<h:inputSecret value="#{controllerCliente.password}" required="true"
+				requiredMessage="Campo obbligatorio" id="password">
+			</h:inputSecret>
+			<h:message for="password" styleClass="error" />
+		</div>
+		<div>
+			Non sei ancora registrato? 
+			<h:link value="Registrati qui." outcome="registrazioneCliente"></h:link> 
+		</div>
+		<div>
+			<h:commandButton id="accedi" value="accedi"
+				action="#{controllerCliente.autenticaCliente()}" />
+		</div>
+	</h:form>
+	<h:button value="torna indietro" outcome="operazioniAdmin" />
+</h:body>
+</html>

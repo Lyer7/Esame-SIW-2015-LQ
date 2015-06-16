@@ -5,48 +5,57 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name="Tabella_Cliente")
 @NamedQuery(name = "findAllClienti", query = "SELECT c FROM Cliente c")
 public class Cliente {
+
 	
-	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	@Column(nullable=false)
+	private String nome;
+
+	@Column(nullable=false)
+	private String cognome;
+
+	@Id
+	@Column(nullable=false)
+	private String email;
+
+	@Temporal(TemporalType.DATE)
+	private GregorianCalendar dataDiNascita;
+
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataDiRegistrazione;
 	
 	@Column(nullable=false)
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Indirizzo indirizzo;
 	
 	@Column(nullable=false)
-	private String nome;
+	private String password;
 	
-	@Column(nullable=false)
-	private String cognome;
-	
-	@Column(nullable=false)
-	private String email;
-	
-    @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date dataDiNascita;
+	@OneToMany(mappedBy="cliente", cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	private List<Ordine> ordini;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataDiRegistrazione;
-    
-    public Cliente(){}
-
-	public Cliente(String nome, String cognome,Indirizzo indirizzo, String email){
+	public Cliente(String nome, String cognome,Indirizzo indirizzo, GregorianCalendar dataDiNascita, String email, String password){
 		this.nome = nome;
 		this.cognome = cognome;
+		this.indirizzo = indirizzo;
 		this.email = email;
-		this.indirizzo= indirizzo;
-		
+		this.password = password;
+		this.dataDiNascita= dataDiNascita;
+		this.dataDiRegistrazione = new Date();
+		this.ordini = new ArrayList<Ordine>();
 	}
-	
-	/* Getters and Setters */
+
+	public Long getId() {
+		return id;
+	}
 
 	public Indirizzo getIndirizzo() {
-		return indirizzo;
+		return this.indirizzo;
 	}
 
 	public void setIndirizzo(Indirizzo indirizzo) {
@@ -77,11 +86,11 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public Date getDataDiNascita() {
+	public GregorianCalendar getDataDiNascita() {
 		return dataDiNascita;
 	}
 
-	public void setDataDiNascita(Date dataDiNascita) {
+	public void setDataDiNascita(GregorianCalendar dataDiNascita) {
 		this.dataDiNascita = dataDiNascita;
 	}
 
@@ -93,5 +102,20 @@ public class Cliente {
 		this.dataDiRegistrazione = dataDiRegistrazione;
 	}
 	
-
+	public String getPassword(){
+		return this.password;
+	}
+	
+	public void setPassword(String password){
+		this.password=password;
+	}
+	
+	public void aggiungiOrdine(Ordine ordine) {
+		this.ordini.add(ordine);
+	}
+	
+	public boolean verificaCredenziali(String password){
+		return this.password.equals(password);
+	}
 }
+

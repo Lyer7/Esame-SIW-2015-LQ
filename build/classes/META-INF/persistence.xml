@@ -3,10 +3,22 @@
 	xmlns="http://java.sun.com/xml/ns/persistence" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-	<persistence-unit name="unit-proggetto2015" transaction-type="JTA">
+	<persistence-unit name="unit-progetto" transaction-type="JTA">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<jta-data-source>PostgreSQL Database</jta-data-source>
-		<class>it.uniroma3.model.Product</class>
+	
+				<class>it.uniroma3.model.Prodotto</class>
+		
+				<class>it.uniroma3.model.Cliente</class>
+		
+				<class>it.uniroma3.model.Indirizzo</class>
+		
+				<class>it.uniroma3.model.Fornitore</class>
+		
+				<class>it.uniroma3.model.Ordine</class>
+		
+				<class>it.uniroma3.model.RigaOrdine</class>
+		
 		<properties>
 			<property name="openjpa.jdbc.SynchronizeMappings" 
 							value="buildSchema(ForeignKeys=true)" />

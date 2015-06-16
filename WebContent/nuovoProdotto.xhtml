@@ -1,44 +1,49 @@
-<!DOCTYPE html>
-<html xmlns:h="http://java.sun.com/jsf/html"
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>e-commerce</title>
+
+	<title>Aggiungi Prodotto</title>
+<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 </h:head>
 <h:body>
 	<h1>Aggiungi nuovo prodotto</h1>
 	<h:form>
 		<div>
-			Nome:
-			<h:inputText value="#{controllerProdotto.nome}" required="true"
-				requiredMessage="campo obbligatorio" id="nome">
+			Nome: 
+			<h:inputText value="#{controllerProdotto.nome}"
+				required="true"
+				requiredMessage="Campo obbligatorio"
+				id="nome">
 			</h:inputText>
-			<h:message for="nome" styleClass="error" />
+			<h:message for="nome" styleClass="error"/>
 		</div>
 		<div>
-			Codice:
-			<h:inputText value="#{controllerProdotto.codice}" required="true"
-				requiredMessage="campo obbligatorio"
-				validatorMessage="Code: min 6 max 10 characters" id="codice">
+			Codice: 
+			<h:inputText value="#{controllerProdotto.codice}"
+				required="true"
+				requiredMessage="Campo obbligatorio"
+				id="codice">
 			</h:inputText>
-			<h:message for="codice" styleClass="error" />
+			<h:message for="codice" styleClass="error"/>
 		</div>
 		<div>
-			Descrizione:
-			<h:inputTextarea rows="6" value="#{controllerProdotto.descrizione}"
+			Descrizione: 
+			<h:inputTextarea value="#{controllerProdotto.descrizione}"
+				rows="6"
 				id="descrizione">
 			</h:inputTextarea>
 		</div>
 		<div>
-			Prezzo:
-			<h:inputText value="#{controllerProdotto.prezzo}" required="true"
-				requiredMessage="campo obbligatorio" id="prezzo">
+			Prezzo: 
+			<h:inputText value="#{controllerProdotto.prezzo}"
+				required="true"
+				requiredMessage="Campo obbligatorio"
+				id="prezzo">
 			</h:inputText>
-			<h:message for="prezzo" styleClass="error" />
+			<h:message for="prezzo" styleClass="error"/>
 		</div>
-		<div>
-			<h:commandButton id="submit" value="invia" action= "confermaProdotto"/>
-		</div>
-
+		<div><h:commandButton id="submit" value="invia" action="riepilogoProdotto"/></div>
 	</h:form>
+	<h:button value="torna indietro" outcome="operazioniAdmin"/>
 </h:body>
 </html>

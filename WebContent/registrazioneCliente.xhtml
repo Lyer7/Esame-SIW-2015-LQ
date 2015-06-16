@@ -1,0 +1,105 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Registrazione Utente</title>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+	<h1>Registrati</h1>
+	<h:form>
+		<div>
+			Indirizzo e-mail:
+			<h:inputText value="#{controllerCliente.email}" required="true"
+				requiredMessage="Campo obbligatorio" id="email">
+			</h:inputText>
+			<h:message for="email" styleClass="error" />
+		</div>
+		<div>
+			Password:
+			<h:inputSecret value="#{controllerCliente.password}" required="true"
+				requiredMessage="Campo obbligatorio" id="password">
+			</h:inputSecret>
+			<h:message for="password" styleClass="error" />
+		</div>
+		<div>
+			Nome:
+			<h:inputText value="#{controllerCliente.nome}" required="true"
+				requiredMessage="Campo obbligatorio" id="nome">
+			</h:inputText>
+			<h:message for="nome" styleClass="error" />
+		</div>
+		<div>
+			Cognome:
+			<h:inputText value="#{controllerCliente.cognome}" required="true"
+				requiredMessage="Campo obbligatorio" id="cognome">
+			</h:inputText>
+			<h:message for="cognome" styleClass="error" />
+		</div>
+		<div>
+			Data di nascita(gg/mm/aaaa):
+			<h:inputText value="#{controllerCliente.giorno}" required="true"
+				requiredMessage="Campo obbligatorio" id="giorno">
+			</h:inputText>
+			/
+			<h:inputText value="#{controllerCliente.mese}" required="true"
+				requiredMessage="Campo obbligatorio" id="mese">
+			</h:inputText>
+			/
+			<h:inputText value="#{controllerCliente.anno}" required="true"
+				requiredMessage="Campo obbligatorio" id="anno">
+			</h:inputText>
+			<h:message for="giorno" styleClass="error" />
+			<h:message for="mese" styleClass="error" />
+			<h:message for="anno" styleClass="error" />
+		</div>
+		<div>
+			Indirizzo di residenza:
+			<h:inputText value="#{controllerCliente.via}" required="true"
+				requiredMessage="Campo obbligatorio" id="via">
+			</h:inputText>
+			<h:message for="via" styleClass="error" />
+		</div>
+		<div>
+			Citt&#224;:
+			<h:inputText value="#{controllerCliente.citta}" required="true"
+				requiredMessage="Campo obbligatorio" id="citta">
+			</h:inputText>
+			<h:message for="citta" styleClass="error" />
+		</div>
+		<div>
+			Regione:
+			<h:inputText value="#{controllerCliente.regione}" required="true"
+				requiredMessage="Campo obbligatorio" id="regione">
+			</h:inputText>
+			<h:message for="regione" styleClass="error" />
+		</div>
+		<div>
+			Cap:
+			<h:inputText value="#{controllerCliente.codicePostale}"
+				required="true" requiredMessage="Campo obbligatorio"
+				id="codicePostale">
+			</h:inputText>
+			<h:message for="codicePostale" styleClass="error" />
+		</div>
+		<div>
+			Nazione:
+			<h:inputText value="#{controllerCliente.stato}" required="true"
+				requiredMessage="Campo obbligatorio" id="stato">
+			</h:inputText>
+			<h:message for="stato" styleClass="error" />
+		</div>
+		<div>
+			<h:commandButton value="invia" action="#{controllerCliente.creaCliente()}"></h:commandButton>
+		</div>
+	</h:form>
+	<h:button value="annulla" outcome="loginCliente" />
+</h:body>
+</html>

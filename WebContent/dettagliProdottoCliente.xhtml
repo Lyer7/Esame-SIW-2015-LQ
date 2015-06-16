@@ -1,0 +1,26 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Prodotto</title>
+	<meta charset="utf-8"></meta>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+	<h1>Dettagli Prodotto</h1>
+	<ul>
+		<h:form>
+			<li>Nome: <h:outputText
+					value="${controllerProdotto.prodotto.nome}"></h:outputText></li>
+			<li>Codice: <h:outputText
+					value="${controllerProdotto.prodotto.codice}"></h:outputText></li>
+			<li>Descrizione: <h:outputText
+					value="${controllerProdotto.prodotto.descrizione}"></h:outputText></li>
+			<li>Prezzo: <h:outputText
+					value="${controllerProdotto.prodotto.prezzo}"></h:outputText></li>
+			<li>Quantit&#224; disponibile: <h:outputText
+					value="${controllerProdotto.prodotto.qtaMagazzino}"></h:outputText></li>
+		</h:form>
+	</ul>
+</h:body>
+</html>

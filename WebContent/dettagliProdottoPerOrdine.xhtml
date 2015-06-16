@@ -1,0 +1,33 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Prodotto</title>
+	<meta charset="utf-8"></meta>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+	<h1>Dettagli prodotto</h1>
+	<ul>
+		<li>Nome: <h:outputText
+				value="${controllerProdotto.prodotto.nome}"></h:outputText></li>
+		<li>Codice: <h:outputText
+				value="${controllerProdotto.prodotto.codice}"></h:outputText></li>
+		<li>Descrizione: <h:outputText
+				value="${controllerProdotto.prodotto.descrizione}"></h:outputText></li>
+		<li>Prezzo: <h:outputText
+				value="${controllerProdotto.prodotto.prezzo}"></h:outputText></li>
+		<li>Quantit&#224; disponibile: <h:outputText
+				value="${controllerProdotto.prodotto.qtaMagazzino}"></h:outputText></li>
+		<h:form>
+			Quantit&#224; da Ordinare:
+			<h:inputText value="#{controllerOrdine.qta}" required="true"
+				requiredMessage="Campo obbligatorio" id="qta">
+			</h:inputText>
+			<h:commandButton value="Ordina"
+				action="#{controllerOrdine.aggiungiProdotto()}"></h:commandButton>
+			<h:message for="qta" styleClass="error" />
+		</h:form>
+	</ul>
+</h:body>
+</html>

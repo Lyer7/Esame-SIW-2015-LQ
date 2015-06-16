@@ -4,10 +4,7 @@ import javax.persistence.*;
 
 import java.util.*;
 
-import java.util.Date;
-
 @Entity
-@Table(name = "Tabella_Ordini")
 @NamedQuery(name = "findAllOrdini", query = "SELECT o FROM Ordine o")
 public class Ordine {
 
@@ -17,14 +14,14 @@ public class Ordine {
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCreazione;
-	
+	private Date dataApertura;
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataChiusura;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataEvasione;
-
+	
 	@ManyToOne
 	private Cliente cliente;
 
@@ -32,11 +29,14 @@ public class Ordine {
 	private List<RigaOrdine> righeOrdine;
 
 	public Ordine(Cliente cliente) {
-		this.cliente= cliente;
-		this.dataCreazione= new Date();
+		this.dataApertura = new Date();
+		this.cliente = cliente;
+		this.righeOrdine = new ArrayList<RigaOrdine>();
 	}
-
-	// Getters and Setters
+	
+	public void aggiungiRigaOrdine(RigaOrdine rigaOrdine){
+		this.righeOrdine.add(rigaOrdine);
+	}
 
 	public Long getId() {
 		return id;
@@ -46,12 +46,28 @@ public class Ordine {
 		this.id = id;
 	}
 
-	public Date getDataCreazione() {
-		return dataCreazione;
+	public Date getDataApertura() {
+		return dataApertura;
 	}
 
-	public void setDataCreazione(Date dataCreazione) {
-		this.dataCreazione = dataCreazione;
+	public void setDataApertura(Date creationTime) {
+		this.dataApertura = creationTime;
+	}
+
+	public Date getDataChiusura() {
+		return dataChiusura;
+	}
+
+	public void setDataChiusura(Date dataChiusura) {
+		this.dataChiusura = dataChiusura;
+	}
+	
+	public Date getDataEvasione() {
+		return dataEvasione;
+	}
+
+	public void setDataEvasione(Date dataEvasione) {
+		this.dataEvasione = dataEvasione;
 	}
 
 	public Cliente getCliente() {
@@ -62,30 +78,12 @@ public class Ordine {
 		this.cliente = cliente;
 	}
 
-	public List<RigaOrdine> getRigaOrdine() {
+	public List<RigaOrdine> getRigheOrdine() {
 		return righeOrdine;
 	}
 
-	public void setRigheOrdini(List<RigaOrdine> righeOrdine) {
+	public void setRigheOrdine(List<RigaOrdine> righeOrdine) {
 		this.righeOrdine = righeOrdine;
 	}
-
-	public Date getDataChiusura() {
-		return dataChiusura;
-	}
-
-	public void setDataChiusura(Date dataChiusura) {
-		this.dataChiusura = dataChiusura;
-	}
-
-	public Date getDataEvasione() {
-		return dataEvasione;
-	}
-
-	public void setDataEvasione(Date dataEvasione) {
-		this.dataEvasione = dataEvasione;
-	}
-
-
 
 }

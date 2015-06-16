@@ -3,23 +3,20 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 
-	<title>Operazioni amministratore</title>
-	<meta charset="utf-8"></meta>
-	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<title>E-Commerce</title>
+
 	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 </h:head>
 <h:body>
 	<div class="container-fluid">
-		<h1>Benvenuto amministratore!</h1>
+		<h:graphicImage value="img.jpg" style="width: 400px; height: 299px;" />
+		<h1>Benvenuto!</h1>
 		<ul>
-			<li><h:link value="Aggiungi Prodotto" outcome="nuovoProdotto" /></li>
-
+			<li><h:link value="Login Cliente" outcome="loginCliente" /></li>
+			<li><h:link value="Login Amministratore" outcome="operazioniAdmin.xhtml" /></li>
 			<li><h:form>
 					<h:link value="Catalogo Prodotti" outcome="listinoProdotti.xhtml">#{controllerProdotto.listinoProdotti()}</h:link>
 				</h:form></li>
-			<h:form>
-				<h:button value="logout" outcome="index.xhtml" />
-			</h:form>
 		</ul>
 	</div>
 </h:body>

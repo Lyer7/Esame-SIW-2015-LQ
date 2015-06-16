@@ -1,0 +1,43 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Listino Prodotti</title>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+
+	<h1>Listino prodotti</h1>
+
+	<h:dataTable value="#{controllerProdotto.catalogoProdotti}" var="prod"
+		styleClass="order-table" headerClass="order-table-header"
+		rowClasses="order-table-odd-row,order-table-even-row">
+
+		<h:column>
+			<f:facet name="header">Nome      </f:facet>
+			<h:form>
+				<h:commandLink value="#{prod.nome}"
+					action="#{controllerProdotto.cercaProdotto(prod.id)}"></h:commandLink>
+			</h:form>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Prezzo      </f:facet>
+				#{prod.prezzo}
+    	</h:column>
+		<h:column>
+			<f:facet name="header">Quantit&#224; Disponbile      </f:facet>
+				#{prod.qtaMagazzino}
+    	</h:column>
+		<h:form>
+			<h:inputText value="#{controllerCliente.email}" required="true"
+				requiredMessage="Campo obbligatorio" id="email">
+			</h:inputText>
+			<h:commandLink value="Aggiungi al carrello"
+				action="#{controllerProdotto.cercaProdotto(prod.id)}"></h:commandLink>
+		</h:form>
+	</h:dataTable>
+
+</h:body>
+</html>

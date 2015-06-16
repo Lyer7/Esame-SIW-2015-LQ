@@ -2,37 +2,54 @@ package it.uniroma3.controller;
 
 import java.util.List;
 
-import it.uniroma3.model.*;
+import it.uniroma3.model.FacadeProdotto;
+import it.uniroma3.model.Prodotto;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name = "controllerProdotto")
+@SessionScoped
+@ManagedBean(name = "controllerProdotto", eager=true)
 public class ControllerProdotto {
-
+	
 	@EJB
 	private FacadeProdotto facadeProdotto;
+	
 	private Long id;
 	private String nome;
 	private String codice;
-	private Float prezzo;
 	private String descrizione;
+	private Float prezzo;	
+	private Integer qtaMagazzino;
 	private Prodotto prodotto;
 	private List<Prodotto> catalogoProdotti;
 	
-	public String creaProdotto(){
+	public String creaProdotto() {
 		this.prodotto = this.facadeProdotto.creaProdotto(nome, codice, descrizione, prezzo);
-		return "prodotto";
+		if(this.prodotto==null)
+			return "failure";
+		return "success";
 	}
 	
-	public String cercaCatalogoProdotti(){
-		this.catalogoProdotti = this.facadeProdotto.cercaCatalogoProdotti();
-		return "catalogoProdotti";
+	public String listinoProdotti() {
+		this.catalogoProdotti = this.facadeProdotto.catalogoProdotti();
+		return "";
 	}
 	
-	public String cercaProdotto(Long id){
-		this.prodotto = this.facadeProdotto.cercaProdotto(id);
-		return "prodotto";
+	public String cercaProdotto(String id) {
+		this.prodotto = this.facadeProdotto.cercaProdotto(Long.parseLong(id));
+		return "success";
+	}
+	
+	public String aggiungiQtaProdotto(String id) {
+		this.facadeProdotto.aggiungiQtaProdotto(Long.parseLong(id), qtaMagazzino);
+		return "success";
+	}
+	
+	public String riduciQtaProdotto() {
+		this.facadeProdotto.riduciQtaProdotto(prodotto.getId(), qtaMagazzino);
+		return this.listinoProdotti();
 	}
 
 	public Long getId() {
@@ -59,6 +76,14 @@ public class ControllerProdotto {
 		this.codice = codice;
 	}
 
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+
 	public Float getPrezzo() {
 		return prezzo;
 	}
@@ -67,12 +92,12 @@ public class ControllerProdotto {
 		this.prezzo = prezzo;
 	}
 
-	public String getDescrizione() {
-		return descrizione;
+	public Integer getQtaMagazzino() {
+		return qtaMagazzino;
 	}
 
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+	public void setQtaMagazzino(Integer qtaMagazzino) {
+		this.qtaMagazzino = qtaMagazzino;
 	}
 
 	public Prodotto getProdotto() {
@@ -90,6 +115,5 @@ public class ControllerProdotto {
 	public void setCatalogoProdotti(List<Prodotto> catalogoProdotti) {
 		this.catalogoProdotti = catalogoProdotti;
 	}
-	
 	
 }
