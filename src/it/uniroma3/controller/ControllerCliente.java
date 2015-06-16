@@ -17,25 +17,29 @@ public class ControllerCliente {
 	@EJB
 	private FacadeCliente facadeCliente;
 
+	private Cliente cliente;
+	private String password;
+	
 	private Long id;
 	private String nome;
 	private String cognome;
 	private String email;
+	
+	private GregorianCalendar dataDiNascita;
 	private Integer giorno;
 	private Integer mese;
 	private Integer anno;
-	private GregorianCalendar dataDiNascita;
+
 	private String via;
 	private String citta;
 	private String regione;
-	private String codicePostale;
+	private String cap;
 	private String stato;
+	
 	private Indirizzo indirizzo;
-	private String password;
-	private Cliente cliente;
 
 	public String creaCliente() {
-		this.indirizzo = this.creaIndirizzo(via, citta, regione, codicePostale, stato);
+		this.indirizzo = this.creaIndirizzo(via, citta, regione, cap, stato);
 		this.dataDiNascita = new GregorianCalendar(anno,mese-1,giorno);
 		this.cliente = this.facadeCliente.creaCliente(nome, cognome, indirizzo, dataDiNascita, email, password);
 		if(this.cliente==null)
@@ -50,6 +54,12 @@ public class ControllerCliente {
 		}
 		return "failure";
 	}
+	
+	public Indirizzo creaIndirizzo(String via, String citta, String regione, String codicePostale, String stato) {
+		return new Indirizzo(via, citta, regione, codicePostale, stato);
+	}
+	
+	/* Getters and Setters */
 
 	public Long getId() {
 		return id;
@@ -101,10 +111,6 @@ public class ControllerCliente {
 	public void setIndirizzo(Indirizzo indirizzo) {
 		this.indirizzo = indirizzo;
 	}
-	
-	public Indirizzo creaIndirizzo(String via, String citta, String regione, String codicePostale, String stato) {
-		return new Indirizzo(via, citta, regione, codicePostale, stato);
-	}
 
 	public void setPassword(String password) {
 		this.password = password;
@@ -138,12 +144,12 @@ public class ControllerCliente {
 		this.regione = regione;
 	}
 
-	public String getCodicePostale() {
-		return codicePostale;
+	public String getCap() {
+		return cap;
 	}
 
-	public void setCodicePostale(String codicePostale) {
-		this.codicePostale = codicePostale;
+	public void setCap(String cap) {
+		this.cap = cap;
 	}
 
 	public String getStato() {

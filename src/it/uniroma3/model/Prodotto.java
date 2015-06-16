@@ -46,6 +46,8 @@ public class Prodotto {
 		this.qtaMagazzino -= qta;
 	}
 	
+	/* Getters and Setters */
+	
 	public Long getId() {
 		return id;
 	}

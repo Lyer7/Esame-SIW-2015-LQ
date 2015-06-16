@@ -8,21 +8,21 @@
 <link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 </h:head>
 <h:body>
-	<h1>Hai inserito con successo il seguente prodotto</h1>
+	<h1>Il Seguente Prodotto è stato inserito nel Catalogo.</h1>
 	<ul>
 		<li>Nome: <h:outputText value="${controllerProdotto.nome}"></h:outputText></li>
 		<li>Codice: <h:outputText value="${controllerProdotto.codice}"></h:outputText></li>
 		<li>Descrizione: <h:outputText
 				value="${controllerProdotto.descrizione}"></h:outputText></li>
 		<li>Prezzo: <h:outputText value="${controllerProdotto.prezzo}"></h:outputText></li>
-		<li>Quantit&#224; disponibile: <h:outputText value="${controllerProdotto.qtaMagazzino}"></h:outputText></li>
+		<li>Quantit&#224; Disponibile: <h:outputText value="${controllerProdotto.qtaMagazzino}"></h:outputText></li>
 	</ul>
 	<div>
-	<h:button value="Inserisci nuovo Prodotto"
+	<h:button value="Inserisci Nuovo Prodotto"
 		outcome="nuovoProdotto" />
 	</div>
 	<div>
-	<h:button value="torna alla pagina di amministrazione"
+	<h:button value="Torna Alla Pagina di Amministrazione"
 		outcome="operazioniAdmin" />
 	</div>
 </h:body>

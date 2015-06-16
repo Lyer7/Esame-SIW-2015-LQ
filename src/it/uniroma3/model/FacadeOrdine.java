@@ -1,8 +1,11 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Stateless(name = "facadeOrdine")
 public class FacadeOrdine {
@@ -22,4 +25,42 @@ public class FacadeOrdine {
 		RigaOrdine rigaOrdine = new RigaOrdine(prodotto, ordine, qtaProdotto);
 		ordine.aggiungiRigaOrdine(rigaOrdine);
 	}
+	
+	public List<Ordine> ordiniCliente(String email){
+		TypedQuery<Ordine> query = this.em.createNamedQuery("tuttiOrdini", Ordine.class );
+		for(Ordine ordine: query.getResultList()){
+			if(ordine.getDataChiusura()==null){
+				Cliente cliente = ordine.getCliente();
+				cliente.rimuoviOrdine(ordine);
+				this.em.remove(ordine);
+			}
+		}
+		
+		return this.em.find(Cliente.class, email).getOrdini();
+	}
+	
+	public List<Ordine> tuttiOrdini(){
+		TypedQuery<Ordine> query = this.em.createNamedQuery("tuttiOrdini", Ordine.class);
+		return query.getResultList();
+	}
+	
+	public List<RigaOrdine> getRigheOrdine(Long id){
+		Ordine ordine = this.em.find(Ordine.class, id);
+		return ordine.getRigheOrdine();
+	}
+	
+	public Ordine cercaOrdine(Long id){
+		return this.em.find(Ordine.class, id);
+	}
+	
+	public void rimuoviOrdine(Long id){
+		Ordine ordine = this.em.find(Ordine.class, id);
+		this.em.remove(ordine);
+	}
+	
+	public void chiudiOrdine(Long id){
+		Ordine ordine = this.em.find(Ordine.class, id);
+		ordine.setDataChiusura();
+	}
+
 }	

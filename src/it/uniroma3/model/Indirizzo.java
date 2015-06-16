@@ -29,6 +29,8 @@ public class Indirizzo {
 
     @Column(nullable = false)
     private String stato;
+    
+    public Indirizzo(){}
 
     public Indirizzo(String via, String citta, String regione, String codicePostale, String stato) {
     	this.via = via;
@@ -37,6 +39,8 @@ public class Indirizzo {
     	this.codicePostale = codicePostale;
     	this.stato = stato;
     }
+    
+    /* Getters and Setters */
 
 	public Long getId() {
 		return id;

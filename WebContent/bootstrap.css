@@ -56,7 +56,7 @@ height
 }
 
 a {
-	background-color: transparent;
+	background-color: #000000;
 }
 
 a:active, a:hover {
@@ -1383,10 +1383,14 @@ html {
 
 body {
 	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 15px;
+	font-size: 50px;
+   	text-align: center;
 	line-height: 1.42857143;
 	color: #ebebeb;
-	background-color: #000000;
+	background-image: url("imgs/siw-ecommlq-background-v3.png");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
 input, button, select, textarea {
@@ -1417,6 +1421,9 @@ figure {
 
 img {
 	vertical-align: middle;
+	display: block;
+	height: auto;
+	max-width: 100%;
 }
 
 .img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img,

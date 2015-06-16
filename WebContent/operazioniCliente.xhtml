@@ -10,13 +10,26 @@
 </h:head>
 <h:body>
 	<div class="container-fluid">
-		<h1>Benvenuto Cliente!</h1>
+		<h1>Benvenuto nella tua Area Cliente</h1>
 		<ul>
+<!-- 			<li><h:form>
+					<h:commandLink action="#{controllerOrdine.creaOrdine()}"
+						value="Crea un Nuovo Ordine" />
+				</h:form></li> -->
+
+
 			<li><h:form>
-				<h:commandLink action="#{controllerOrdine.creaOrdine()}" value="Crea Ordine"/></h:form>
-			<h:form>	
-				<h:button value="logout" outcome="index.xhtml" />
-			</h:form></li>	
+					<h:link value="Crea un Nuovo Ordine" outcome="catalogoProdotti.xhtml">
+					#{controllerProdotto.listaProdotti()}
+					#{controllerOrdine.creaOrdine()}</h:link>
+				</h:form></li>
+				
+			<li><h:form>
+			<h:commandLink action="#{controllerOrdine.ordiniCliente()}" value="Consulta i Tuoi Ordini"></h:commandLink>
+			</h:form></li>
+			<h:form>
+				<h:button value="Log-out" outcome="index.xhtml" />
+			</h:form>
 		</ul>
 	</div>
 </h:body>

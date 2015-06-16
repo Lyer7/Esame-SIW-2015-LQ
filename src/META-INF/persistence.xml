@@ -6,18 +6,18 @@
 	<persistence-unit name="unit-progetto" transaction-type="JTA">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<jta-data-source>PostgreSQL Database</jta-data-source>
-	
-				<class>it.uniroma3.model.Prodotto</class>
-		
-				<class>it.uniroma3.model.Cliente</class>
-		
-				<class>it.uniroma3.model.Indirizzo</class>
-		
-				<class>it.uniroma3.model.Fornitore</class>
-		
-				<class>it.uniroma3.model.Ordine</class>
-		
-				<class>it.uniroma3.model.RigaOrdine</class>
+
+	<class>it.uniroma3.model.Prodotto</class>
+
+	<class>it.uniroma3.model.Cliente</class>
+
+	<class>it.uniroma3.model.Indirizzo</class>
+
+	<class>it.uniroma3.model.Fornitore</class>
+
+	<class>it.uniroma3.model.Ordine</class>
+
+	<class>it.uniroma3.model.RigaOrdine</class>			
 		
 		<properties>
 			<property name="openjpa.jdbc.SynchronizeMappings" 

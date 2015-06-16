@@ -8,19 +8,19 @@
 <link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 </h:head>
 <h:body>
-	<h1>Nuovi arrivi</h1>
+	<h1>Gestione Quantità Prodotti presenti in Magazzino</h1>
 	<div>
 		Nome:
 		<h:outputText value="${controllerProdotto.prodotto.nome}"></h:outputText>
 	</div>
 	<div>
-		Quantit&#224; disponibile:
+		Quantit&#224; Disponibile:
 		<h:outputText value="${controllerProdotto.prodotto.qtaMagazzino}"></h:outputText>
 	</div>
 	<div>
 		<h:form>
 			<div>
-				Quantit&#224; da aggiungere:
+				Quantit&#224; da Aggiungere:
 				<h:inputText value="#{controllerProdotto.qtaMagazzino}"
 					required="true" requireMessage="Campo obbligatorio"
 					id="qtaMagazzino">

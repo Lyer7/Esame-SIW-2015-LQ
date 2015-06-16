@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14338385742640" configfile="/Esame-SIW-2015-LQ/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14338385742640" configfile="/Esame-SIW-2015-LQ/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="riepilogoProdotto.xhtml" x="122" y="178" id="pf14344688185381" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14344688185382" path="/riepilogoProdotto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/prodottoInserito.xhtml" x="338" y="178" id="pf14344688185383" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14344688185382" path="/faces/prodottoInserito.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="loginCliente.xhtml" x="122" y="562" id="pf14344688185384" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14344688185385" path="/loginCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/operazioniCliente.xhtml" x="338" y="562" id="pf14344688185386" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14344688185385" path="/faces/operazioniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registrazioneCliente.xhtml" x="122" y="946" id="pf14344688185387" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14344688185388" path="/registrazioneCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/loginCliente.xhtml" x="338" y="946" id="pf14344688185389" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14344688185388" path="/faces/loginCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listinoProdotti.xhtml" x="122" y="1330" id="pf143446881853810" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf143446881853811" path="/listinoProdotti.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdotto.xhtml" x="338" y="1330" id="pf143446881853812" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf143446881853811" path="/faces/dettagliProdotto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="operazioniCliente.xhtml" x="122" y="1714" id="pf143446881853813" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf143446881853814" path="/operazioniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/listinoProdottiPerOrdine.xhtml" x="338" y="1714" id="pf143446881853815" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf143446881853814" path="/faces/listinoProdottiPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listinoProdottiPerOrdine.xhtml" x="122" y="2098" id="pf143446881853816" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf143446881853817" path="/listinoProdottiPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdottoPerOrdine.xhtml" x="338" y="2098" id="pf143446881853818" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf143446881853817" path="/faces/dettagliProdottoPerOrdine.xhtml"/>
+  <links id="pf14344688185382" target="pf14344688185383" source="pf14344688185381" outcome="success" fromaction="#{controllerProdotto.creaProdotto()}"/>
+  <links id="pf14344688185385" target="pf14344688185386" source="pf14344688185384" outcome="success" fromaction="#{controllerCliente.autenticaCliente()}"/>
+  <links id="pf14344688185388" target="pf14344688185389" source="pf14344688185387" outcome="success" fromaction="#{controllerCliente.creaCliente()}"/>
+  <links id="pf143446881853811" target="pf143446881853812" source="pf143446881853810" outcome="success" fromaction="#{controllerCliente.cercaProdotto(prod.id)}"/>
+  <links id="pf143446881853814" target="pf143446881853815" source="pf143446881853813" outcome="success"/>
+  <links id="pf143446881853817" target="pf143446881853818" source="pf143446881853816" outcome="success"/>
+</pageflow:Pageflow>

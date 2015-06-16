@@ -32,7 +32,7 @@ public class ControllerProdotto {
 		return "success";
 	}
 	
-	public String listinoProdotti() {
+	public String listaProdotti() {
 		this.catalogoProdotti = this.facadeProdotto.catalogoProdotti();
 		return "";
 	}
@@ -49,8 +49,18 @@ public class ControllerProdotto {
 	
 	public String riduciQtaProdotto() {
 		this.facadeProdotto.riduciQtaProdotto(prodotto.getId(), qtaMagazzino);
-		return this.listinoProdotti();
+		return this.listaProdotti();
 	}
+	
+	public List<Prodotto> getCatalogoProdotti() {
+		return catalogoProdotti;
+	}
+
+	public void setCatalogoProdotti(List<Prodotto> catalogoProdotti) {
+		this.catalogoProdotti = catalogoProdotti;
+	}
+	
+	/* Getters and Setters */
 
 	public Long getId() {
 		return id;
@@ -108,12 +118,5 @@ public class ControllerProdotto {
 		this.prodotto = prodotto;
 	}
 
-	public List<Prodotto> getCatalogoProdotti() {
-		return catalogoProdotti;
-	}
-
-	public void setCatalogoProdotti(List<Prodotto> catalogoProdotti) {
-		this.catalogoProdotti = catalogoProdotti;
-	}
 	
 }

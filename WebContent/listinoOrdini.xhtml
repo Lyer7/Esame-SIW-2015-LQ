@@ -1,0 +1,38 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Listino Ordini</title>
+	<meta charset="utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+
+	<h1>Listino ordini</h1>
+
+	<h:dataTable value="#{controllerOrdine.ordini}" var="ord"
+		styleClass="order-table" headerClass="order-table-header"
+		rowClasses="order-table-odd-row,order-table-even-row">
+		<h:column>
+			<f:facet name="header">Id ordine     </f:facet>
+			<h:form>
+				<h:commandLink value="#{ord.id}"
+					action="#{controllerOrdine.cercaOrdine(ord.id)}"></h:commandLink>
+			</h:form>
+		</h:column>
+		<h:column>
+			<f:facet name="header">Data di creazione      </f:facet>
+				#{ord.dataApertura}
+    	</h:column>
+		<h:column>
+			<f:facet name="header">Data di chiusura      </f:facet>
+				#{ord.dataChiusura}
+    	</h:column>
+    	<h:column>
+			<f:facet name="header">Data di evasione     </f:facet>
+				#{ord.dataEvasione}
+    	</h:column>
+	</h:dataTable>
+</h:body>
+</html>

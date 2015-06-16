@@ -1,8 +1,12 @@
 package it.uniroma3.controller;
 
+import java.util.List;
+
+import it.uniroma3.model.Cliente;
 import it.uniroma3.model.FacadeOrdine;
 import it.uniroma3.model.Ordine;
 import it.uniroma3.model.Prodotto;
+import it.uniroma3.model.RigaOrdine;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -18,47 +22,59 @@ public class ControllerOrdine {
 	
 	@ManagedProperty(value="#{controllerCliente}")
 	private ControllerCliente controllerCliente;
+	
 	@ManagedProperty(value="#{controllerProdotto}")
 	private ControllerProdotto controllerProdotto;
-	private Long id;
+	
+	private Cliente cliente;
 	private Ordine ordine;
 	private Integer qta;
+	private List<RigaOrdine> righeOrdine;
+	private List<Ordine> tuttiOrdini;
 	
 	public String creaOrdine() {
 		this.ordine=this.facadeOrdine.creaOrdine(controllerCliente.getCliente());
-		return controllerProdotto.listinoProdotti();
+		return controllerProdotto.listaProdotti();
 	}
-
+	
+	public String cercaOrdine(String id){
+		this.ordine = this.facadeOrdine.cercaOrdine(Long.parseLong(id));
+		return this.getCarrello();
+	}
+	
+	public String cercaClienteOrdine(String id){
+		this.ordine = this.facadeOrdine.cercaOrdine(Long.parseLong(id));
+		this.cliente = this.ordine.getCliente();
+		return "success";
+	}
+	
 	public String aggiungiProdotto(){
-		Prodotto p = this.controllerProdotto.getProdotto();
-		this.facadeOrdine.aggiungiProdottoAOrdine(p, ordine, qta);
-		return controllerProdotto.riduciQtaProdotto();
+		Prodotto prodotto = this.controllerProdotto.getProdotto();
+		this.facadeOrdine.aggiungiProdottoAOrdine(prodotto, ordine, qta);
+		return this.getCarrello();
 	}
-
-	public Long getId() {
-		return id;
+	
+	public String tuttiOrdini(){
+		this.tuttiOrdini = this.facadeOrdine.tuttiOrdini();
+		return "success";
 	}
-
-	public void setId(Long id) {
-		this.id = id;
+	
+	public String ordiniCliente(){
+		this.cliente = this.controllerCliente.getCliente();
+		this.tuttiOrdini = this.facadeOrdine.ordiniCliente(this.cliente.getEmail());
+		return "success";
 	}
-
-	public Ordine getOrdine() {
-		return ordine;
+	
+	public String annullaOrdine(){
+		this.facadeOrdine.rimuoviOrdine(this.ordine.getId());
+		return "success";
 	}
-
-	public void setOrdine(Ordine ordine) {
-		this.ordine = ordine;
+	
+	public String chiudiOrdine(){
+		this.facadeOrdine.chiudiOrdine(this.ordine.getId());
+		return "success";
 	}
-
-	public Integer getQta() {
-		return qta;
-	}
-
-	public void setQta(Integer qta) {
-		this.qta = qta;
-	}
-
+	
 	public ControllerCliente getControllerCliente() {
 		return controllerCliente;
 	}
@@ -74,5 +90,61 @@ public class ControllerOrdine {
 	public void setControllerProdotto(ControllerProdotto controllerProdotto) {
 		this.controllerProdotto = controllerProdotto;
 	}
+	
+	public String getCarrello(){
+		this.righeOrdine = this.facadeOrdine.getRigheOrdine(ordine.getId());
+		return "success";
+	}
+	
+	/* Getters and Setters */
+
+	public Ordine getOrdine() {
+		return ordine;
+	}
+
+	public void setOrdine(Ordine ordine) {
+		this.ordine = ordine;
+	}
+
+	public Integer getQta() {
+		return qta;
+	}
+
+	public FacadeOrdine getFacadeOrdine() {
+		return facadeOrdine;
+	}
+
+	public void setFacadeOrdine(FacadeOrdine facadeOrdine) {
+		this.facadeOrdine = facadeOrdine;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<RigaOrdine> getRigheOrdine() {
+		return righeOrdine;
+	}
+
+	public void setRigheOrdine(List<RigaOrdine> righeOrdine) {
+		this.righeOrdine = righeOrdine;
+	}
+
+	public List<Ordine> getTuttiOrdini() {
+		return tuttiOrdini;
+	}
+
+	public void setTuttiOrdini(List<Ordine> ordini) {
+		this.tuttiOrdini = ordini;
+	}
+
+	public void setQta(Integer qta) {
+		this.qta = qta;
+	}
+
 	
 }

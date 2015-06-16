@@ -117,5 +117,13 @@ public class Cliente {
 	public boolean verificaCredenziali(String password){
 		return this.password.equals(password);
 	}
+	
+	public void rimuoviOrdine(Ordine ordine){
+		this.ordini.remove(ordine);
+	}
+	
+	public List<Ordine> getOrdini(){
+		return this.ordini;
+	}
 }
 

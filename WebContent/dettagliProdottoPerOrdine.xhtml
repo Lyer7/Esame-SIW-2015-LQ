@@ -17,12 +17,12 @@
 				value="${controllerProdotto.prodotto.descrizione}"></h:outputText></li>
 		<li>Prezzo: <h:outputText
 				value="${controllerProdotto.prodotto.prezzo}"></h:outputText></li>
-		<li>Quantit&#224; disponibile: <h:outputText
+		<li>Quantit&#224; Disponibile: <h:outputText
 				value="${controllerProdotto.prodotto.qtaMagazzino}"></h:outputText></li>
 		<h:form>
 			Quantit&#224; da Ordinare:
 			<h:inputText value="#{controllerOrdine.qta}" required="true"
-				requiredMessage="Campo obbligatorio" id="qta">
+				requiredMessage="Campo Obbligatorio" id="qta">
 			</h:inputText>
 			<h:commandButton value="Ordina"
 				action="#{controllerOrdine.aggiungiProdotto()}"></h:commandButton>

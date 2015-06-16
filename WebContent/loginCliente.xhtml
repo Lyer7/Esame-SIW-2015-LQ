@@ -8,31 +8,31 @@
 <link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 </h:head>
 <h:body>
-	<h1>Accedi</h1>
+	<h1>Accedi alla tua Area Cliente</h1>
 	<h:form>
 		<div>
-			Qual è il tuo indirizzo e-mail?
+			Indirizzo E-mail:
 			<h:inputText value="#{controllerCliente.email}" required="true"
-				requiredMessage="Campo obbligatorio" id="email">
+				requiredMessage="Campo Obbligatorio" id="email">
 			</h:inputText>
 			<h:message for="email" styleClass="error" />
 		</div>
 		<div>
-			Hai già una password?
+			Password:
 			<h:inputSecret value="#{controllerCliente.password}" required="true"
-				requiredMessage="Campo obbligatorio" id="password">
+				requiredMessage="Campo Obbligatorio" id="password">
 			</h:inputSecret>
 			<h:message for="password" styleClass="error" />
 		</div>
 		<div>
-			Non sei ancora registrato? 
+			Non sei ancora Registrato? 
 			<h:link value="Registrati qui." outcome="registrazioneCliente"></h:link> 
 		</div>
 		<div>
-			<h:commandButton id="accedi" value="accedi"
+			<h:commandButton id="Accedi" value="Accedi"
 				action="#{controllerCliente.autenticaCliente()}" />
 		</div>
 	</h:form>
-	<h:button value="torna indietro" outcome="operazioniAdmin" />
+	<h:button value="Torna Indietro" outcome="index.xhtml" />
 </h:body>
 </html>

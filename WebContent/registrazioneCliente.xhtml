@@ -5,94 +5,90 @@
 	<title>Registrazione Utente</title>
 	<meta charset="utf-8"></meta>
 	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-	<link rel="stylesheet"
-		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+
 </h:head>
 <h:body>
-	<h1>Registrati</h1>
+	<h1>Registrati completando correttamente i seguenti Campi:</h1>
 	<h:form>
 		<div>
-			Indirizzo e-mail:
+			Indirizzo E-mail:
 			<h:inputText value="#{controllerCliente.email}" required="true"
-				requiredMessage="Campo obbligatorio" id="email">
+				requiredMessage="Campo Obbligatorio" id="email">
 			</h:inputText>
 			<h:message for="email" styleClass="error" />
 		</div>
 		<div>
 			Password:
 			<h:inputSecret value="#{controllerCliente.password}" required="true"
-				requiredMessage="Campo obbligatorio" id="password">
+				requiredMessage="Campo Obbligatorio" id="password">
 			</h:inputSecret>
 			<h:message for="password" styleClass="error" />
 		</div>
 		<div>
 			Nome:
 			<h:inputText value="#{controllerCliente.nome}" required="true"
-				requiredMessage="Campo obbligatorio" id="nome">
+				requiredMessage="Campo Obbligatorio" id="nome">
 			</h:inputText>
 			<h:message for="nome" styleClass="error" />
 		</div>
 		<div>
 			Cognome:
 			<h:inputText value="#{controllerCliente.cognome}" required="true"
-				requiredMessage="Campo obbligatorio" id="cognome">
+				requiredMessage="Campo Obbligatorio" id="cognome">
 			</h:inputText>
 			<h:message for="cognome" styleClass="error" />
 		</div>
 		<div>
-			Data di nascita(gg/mm/aaaa):
+			Data di Nascita(gg/mm/aaaa):
 			<h:inputText value="#{controllerCliente.giorno}" required="true"
-				requiredMessage="Campo obbligatorio" id="giorno">
+				requiredMessage="Campo Obbligatorio" id="giorno">
 			</h:inputText>
 			/
 			<h:inputText value="#{controllerCliente.mese}" required="true"
-				requiredMessage="Campo obbligatorio" id="mese">
+				requiredMessage="Campo Obbligatorio" id="mese">
 			</h:inputText>
 			/
 			<h:inputText value="#{controllerCliente.anno}" required="true"
-				requiredMessage="Campo obbligatorio" id="anno">
+				requiredMessage="Campo Obbligatorio" id="anno">
 			</h:inputText>
 			<h:message for="giorno" styleClass="error" />
 			<h:message for="mese" styleClass="error" />
 			<h:message for="anno" styleClass="error" />
 		</div>
 		<div>
-			Indirizzo di residenza:
+			Indirizzo:
 			<h:inputText value="#{controllerCliente.via}" required="true"
-				requiredMessage="Campo obbligatorio" id="via">
+				requiredMessage="Campo Obbligatorio" id="via">
 			</h:inputText>
 			<h:message for="via" styleClass="error" />
 		</div>
 		<div>
 			Citt&#224;:
 			<h:inputText value="#{controllerCliente.citta}" required="true"
-				requiredMessage="Campo obbligatorio" id="citta">
+				requiredMessage="Campo Obbligatorio" id="citta">
 			</h:inputText>
 			<h:message for="citta" styleClass="error" />
 		</div>
 		<div>
 			Regione:
 			<h:inputText value="#{controllerCliente.regione}" required="true"
-				requiredMessage="Campo obbligatorio" id="regione">
+				requiredMessage="Campo Obbligatorio" id="regione">
 			</h:inputText>
 			<h:message for="regione" styleClass="error" />
 		</div>
 		<div>
 			Cap:
-			<h:inputText value="#{controllerCliente.codicePostale}"
-				required="true" requiredMessage="Campo obbligatorio"
-				id="codicePostale">
+			<h:inputText value="#{controllerCliente.cap}"
+				required="true" requiredMessage="Campo Obbligatorio"
+				id="cap">
 			</h:inputText>
-			<h:message for="codicePostale" styleClass="error" />
+			<h:message for="cap" styleClass="error" />
 		</div>
 		<div>
-			Nazione:
+			Stato:
 			<h:inputText value="#{controllerCliente.stato}" required="true"
-				requiredMessage="Campo obbligatorio" id="stato">
+				requiredMessage="Campo Obbligatorio" id="stato">
 			</h:inputText>
 			<h:message for="stato" styleClass="error" />
 		</div>

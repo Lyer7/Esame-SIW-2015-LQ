@@ -9,13 +9,12 @@
 </h:head>
 <h:body>
 	<div class="container-fluid">
-		<h:graphicImage value="img.jpg" style="width: 400px; height: 299px;" />
-		<h1>Benvenuto!</h1>
+		<h1>Back To The Future E-Commerce for Fans</h1>
 		<ul>
 			<li><h:link value="Login Cliente" outcome="loginCliente" /></li>
 			<li><h:link value="Login Amministratore" outcome="operazioniAdmin.xhtml" /></li>
 			<li><h:form>
-					<h:link value="Catalogo Prodotti" outcome="listinoProdotti.xhtml">#{controllerProdotto.listinoProdotti()}</h:link>
+					<h:link value="Catalogo Prodotti" outcome="catalogoProdotti.xhtml">#{controllerProdotto.listaProdotti()}</h:link>
 				</h:form></li>
 		</ul>
 	</div>

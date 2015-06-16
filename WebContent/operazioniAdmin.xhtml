@@ -13,12 +13,11 @@
 		<h1>Benvenuto amministratore!</h1>
 		<ul>
 			<li><h:link value="Aggiungi Prodotto" outcome="nuovoProdotto" /></li>
-
 			<li><h:form>
-					<h:link value="Catalogo Prodotti" outcome="listinoProdotti.xhtml">#{controllerProdotto.listinoProdotti()}</h:link>
+					<h:link value="Catalogo Prodotti" outcome="catalogoProdotti.xhtml">#{controllerProdotto.listaProdotti()}</h:link>
 				</h:form></li>
 			<h:form>
-				<h:button value="logout" outcome="index.xhtml" />
+				<h:button value="Log-out" outcome="index.xhtml" />
 			</h:form>
 		</ul>
 	</div>

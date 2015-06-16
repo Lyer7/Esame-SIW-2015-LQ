@@ -4,6 +4,14 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerProdotto.listinoProdotti()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoProdotti.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
 		<from-view-id>/riepilogoProdotto.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{controllerProdotto.creaProdotto()}</from-action>
@@ -28,27 +36,113 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/listinoProdotti.xhtml</from-view-id>
-		<navigation-case>
-			<from-action>#{controllerCliente.cercaProdotto(prod.id)}</from-action>
-			<from-outcome>success</from-outcome>
-			<to-view-id>/faces/dettagliProdotto.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
 		<from-view-id>/operazioniCliente.xhtml</from-view-id>
 		<navigation-case>
-			
+			<from-action>#{controllerOrdine.creaOrdine()}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/listinoProdottiPerOrdine.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<from-view-id>/operazioniCliente.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerOrdine.listinoOrdiniCliente()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoOrdiniCliente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listinoOrdiniCliente.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerOrdine.cercaOrdine(ord.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/dettagliOrdineCliente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/dettagliOrdineCliente.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerOrdine.listinoOrdiniCliente()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoOrdiniCliente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
 		<from-view-id>/listinoProdottiPerOrdine.xhtml</from-view-id>
 		<navigation-case>
-			
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/dettagliProdottoPerOrdine.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listinoProdotti.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerProdotto.cercaProdotto(prod.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/dettagliProdotto.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listinoProdottiAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/dettagliProdottoAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/dettagliProdottoPerOrdine.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/carrello.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/carrello.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerProdotto.listinoProdotti()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoProdottiPerOrdine.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{controllerOrdine.annullaOrdine()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/ordineAnnullato.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{controllerOrdine.terminaOrdine()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/ordiniCliente.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/listinoProdottiAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerCliente.cercaProdotto(prod.id)}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/dettagliProdottoAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/dettagliProdotto.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoProdotti.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/operazioniAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerProdotto.listinoProdotti()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoProdottiAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/incrementoQta.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoProdottiAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>
+

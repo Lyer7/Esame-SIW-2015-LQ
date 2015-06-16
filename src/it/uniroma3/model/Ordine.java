@@ -37,6 +37,8 @@ public class Ordine {
 	public void aggiungiRigaOrdine(RigaOrdine rigaOrdine){
 		this.righeOrdine.add(rigaOrdine);
 	}
+	
+	/* Getters and Setters */
 
 	public Long getId() {
 		return id;
@@ -58,8 +60,8 @@ public class Ordine {
 		return dataChiusura;
 	}
 
-	public void setDataChiusura(Date dataChiusura) {
-		this.dataChiusura = dataChiusura;
+	public void setDataChiusura() {
+		this.dataChiusura = new Date();
 	}
 	
 	public Date getDataEvasione() {

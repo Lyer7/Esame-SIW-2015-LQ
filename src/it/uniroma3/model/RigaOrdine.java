@@ -41,7 +41,7 @@ public class RigaOrdine {
     	this.prezzoUnitario=prodotto.getPrezzo();
     }
     
-    // Getters and Setters
+    /* Getters and Setters */
     
 	public Long getId() {
 		return id;

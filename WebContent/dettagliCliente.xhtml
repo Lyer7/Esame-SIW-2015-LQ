@@ -1,0 +1,22 @@
+<html lang="en" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+	<title>Cliente</title>
+	<meta charset="utf-8"></meta>
+	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
+</h:head>
+<h:body>
+	<h1>Dettagli Cliente</h1>
+	<ul>
+		<li>Nome: <h:outputText value="${controllerCliente.cliente.nome}"></h:outputText></li>
+		<li>Cognome: <h:outputText
+				value="${controllerCliente.cliente.cognome}"></h:outputText></li>
+		<li>Email: <h:outputText
+				value="${controllerCliente.cliente.email}"></h:outputText></li>
+		<h:form>
+			<h:button value="Log-out" outcome="index.xhtml" />
+		</h:form>
+	</ul>
+</h:body>
+</html>
