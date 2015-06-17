@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@NamedQuery(name = "findAllOrdini", query = "SELECT o FROM Ordine o")
+@NamedQuery(name = "tuttiOrdini", query = "SELECT o FROM Ordine o")
 public class Ordine {
 
 	@Id
@@ -68,8 +68,8 @@ public class Ordine {
 		return dataEvasione;
 	}
 
-	public void setDataEvasione(Date dataEvasione) {
-		this.dataEvasione = dataEvasione;
+	public void setDataEvasione() {
+		this.dataEvasione = new Date();
 	}
 
 	public Cliente getCliente() {

@@ -34,7 +34,7 @@ public class ControllerProdotto {
 	
 	public String listaProdotti() {
 		this.catalogoProdotti = this.facadeProdotto.catalogoProdotti();
-		return "";
+		return "success";
 	}
 	
 	public String cercaProdotto(String id) {

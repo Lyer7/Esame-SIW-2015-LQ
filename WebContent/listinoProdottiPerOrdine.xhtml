@@ -30,13 +30,6 @@
 			<f:facet name="header">Quantit&#224; Disponbile</f:facet>
 				#{prod.qtaMagazzino}
     	</h:column>
-		<h:form>
-			<h:inputText value="#{controllerCliente.email}" required="true"
-				requiredMessage="Campo Obbligatorio" id="email">
-			</h:inputText>
-			<h:commandLink value="Aggiungi al carrello"
-				action="#{controllerProdotto.cercaProdotto(prod.id)}"></h:commandLink>
-		</h:form>
 	</h:dataTable>
 
 </h:body>

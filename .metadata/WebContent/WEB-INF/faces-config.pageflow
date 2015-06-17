@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14338385742640" configfile="/Esame-SIW-2015-LQ/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="riepilogoProdotto.xhtml" x="122" y="178" id="pf14344688185381" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14344688185382" path="/riepilogoProdotto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="faces/prodottoInserito.xhtml" x="338" y="178" id="pf14344688185383" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14344688185382" path="/faces/prodottoInserito.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="loginCliente.xhtml" x="122" y="562" id="pf14344688185384" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14344688185385" path="/loginCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="faces/operazioniCliente.xhtml" x="338" y="562" id="pf14344688185386" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14344688185385" path="/faces/operazioniCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="registrazioneCliente.xhtml" x="122" y="946" id="pf14344688185387" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14344688185388" path="/registrazioneCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="faces/loginCliente.xhtml" x="338" y="946" id="pf14344688185389" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14344688185388" path="/faces/loginCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="listinoProdotti.xhtml" x="122" y="1330" id="pf143446881853810" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf143446881853811" path="/listinoProdotti.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdotto.xhtml" x="338" y="1330" id="pf143446881853812" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf143446881853811" path="/faces/dettagliProdotto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="operazioniCliente.xhtml" x="122" y="1714" id="pf143446881853813" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf143446881853814" path="/operazioniCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="faces/listinoProdottiPerOrdine.xhtml" x="338" y="1714" id="pf143446881853815" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf143446881853814" path="/faces/listinoProdottiPerOrdine.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="listinoProdottiPerOrdine.xhtml" x="122" y="2098" id="pf143446881853816" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf143446881853817" path="/listinoProdottiPerOrdine.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdottoPerOrdine.xhtml" x="338" y="2098" id="pf143446881853818" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf143446881853817" path="/faces/dettagliProdottoPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="riepilogoProdotto.xhtml" x="122" y="178" id="pf14344688185381" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14344688185382" path="/riepilogoProdotto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/prodottoInserito.xhtml" x="338" y="178" id="pf14344688185383" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14344688185382" path="/faces/prodottoInserito.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="loginCliente.xhtml" x="122" y="562" id="pf14344688185384" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14344688185385" path="/loginCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/operazioniCliente.xhtml" x="338" y="562" id="pf14344688185386" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14344688185385" path="/faces/operazioniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registrazioneCliente.xhtml" x="122" y="946" id="pf14344688185387" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14344688185388" path="/registrazioneCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/loginCliente.xhtml" x="338" y="946" id="pf14344688185389" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14344688185388" path="/faces/loginCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="operazioniCliente.xhtml" x="122" y="3250" id="pf143446881853813" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf143446881853814 pf14345269710000" path="/operazioniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/listinoProdottiPerOrdine.xhtml" x="338" y="3634" id="pf143446881853815" referenceLink="//@navigationRule.12/@navigationCase.0/@toViewId|" inlinks="pf143446881853814 pf14345269710001" path="/faces/listinoProdottiPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listinoProdottiPerOrdine.xhtml" x="122" y="1330" id="pf143446881853816" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf143446881853817" path="/listinoProdottiPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdottoPerOrdine.xhtml" x="338" y="1330" id="pf143446881853818" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf143446881853817" path="/faces/dettagliProdottoPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/listinoOrdiniCliente.xhtml" x="338" y="2866" id="pf14345269710002" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" inlinks="pf14345269710000 pf14345269710003 pf143453117557933" path="/faces/listinoOrdiniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listinoOrdiniCliente.xhtml" x="122" y="1714" id="pf14345269710004" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf14345269710005" path="/listinoOrdiniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliOrdineCliente.xhtml" x="338" y="1714" id="pf14345269710006" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf14345269710005" path="/faces/dettagliOrdineCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="dettagliOrdineCliente.xhtml" x="122" y="2482" id="pf14345269710007" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf14345269710003" path="/dettagliOrdineCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listinoProdottiAdmin.xhtml" x="122" y="2098" id="pf14345269710008" referenceLink="//@navigationRule.13/@fromViewId|" outlinks="pf14345269710009 pf143452697100010" path="/listinoProdottiAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdottoAdmin.xhtml" x="338" y="2098" id="pf143452697100011" referenceLink="//@navigationRule.13/@navigationCase.0/@toViewId|" inlinks="pf14345269710009 pf143452697100010" path="/faces/dettagliProdottoAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="dettagliProdottoPerOrdine.xhtml" x="122" y="4018" id="pf143452697100012" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf143452697100013" path="/dettagliProdottoPerOrdine.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/carrello.xhtml" x="338" y="4018" id="pf143452697100014" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf143452697100013" path="/faces/carrello.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="carrello.xhtml" x="122" y="4402" id="pf143452697100015" referenceLink="//@navigationRule.12/@fromViewId|" outlinks="pf14345269710001 pf143452697100016 pf143452697100017" path="/carrello.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/ordineAnnullato.xhtml" x="338" y="4402" id="pf143452697100018" referenceLink="//@navigationRule.12/@navigationCase.1/@toViewId|" inlinks="pf143452697100016" path="/faces/ordineAnnullato.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/ordiniCliente.xhtml" x="338" y="4786" id="pf143452697100019" referenceLink="//@navigationRule.12/@navigationCase.2/@toViewId|" inlinks="pf143452697100017" path="/faces/ordiniCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="operazioniAdmin.xhtml" x="122" y="2866" id="pf143452697100020" referenceLink="//@navigationRule.17/@fromViewId|" outlinks="pf143452697100021 pf143453117557933" path="/operazioniAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/listinoProdottiAdmin.xhtml" x="338" y="3250" id="pf143452697100022" referenceLink="//@navigationRule.16/@navigationCase.0/@toViewId|" inlinks="pf143452697100021 pf143452697100023" path="/faces/listinoProdottiAdmin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="incrementoQta.xhtml" x="122" y="3634" id="pf143452697100024" referenceLink="//@navigationRule.16/@fromViewId|" outlinks="pf143452697100023" path="/incrementoQta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="4978" id="pf143452697100025" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf143452697100026" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/catalogoProdotti.xhtml" x="338" y="5170" id="pf143452697101627" referenceLink="//@navigationRule.14/@navigationCase.0/@toViewId|" inlinks="pf143452697100026 pf143452697101628" path="/faces/catalogoProdotti.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="dettagliProdotto.xhtml" x="122" y="5362" id="pf143452697101629" referenceLink="//@navigationRule.14/@fromViewId|" outlinks="pf143452697101628" path="/dettagliProdotto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="catalogoProdotti.xhtml" x="122" y="5746" id="pf143452737353530" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf143452737353931" path="/catalogoProdotti.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="faces/dettagliProdotto.xhtml" x="338" y="5746" id="pf143452737353932" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf143452737353931" path="/faces/dettagliProdottoOspite.xhtml"/>
   <links id="pf14344688185382" target="pf14344688185383" source="pf14344688185381" outcome="success" fromaction="#{controllerProdotto.creaProdotto()}"/>
   <links id="pf14344688185385" target="pf14344688185386" source="pf14344688185384" outcome="success" fromaction="#{controllerCliente.autenticaCliente()}"/>
   <links id="pf14344688185388" target="pf14344688185389" source="pf14344688185387" outcome="success" fromaction="#{controllerCliente.creaCliente()}"/>
-  <links id="pf143446881853811" target="pf143446881853812" source="pf143446881853810" outcome="success" fromaction="#{controllerCliente.cercaProdotto(prod.id)}"/>
-  <links id="pf143446881853814" target="pf143446881853815" source="pf143446881853813" outcome="success"/>
+  <links id="pf143446881853814" target="pf143446881853815" source="pf143446881853813" outcome="success" fromaction="#{controllerOrdine.creaOrdine()}"/>
   <links id="pf143446881853817" target="pf143446881853818" source="pf143446881853816" outcome="success"/>
+  <links id="pf14345269710000" target="pf14345269710002" source="pf143446881853813" outcome="success" fromaction="#{controllerOrdine.ordiniCliente()}"/>
+  <links id="pf14345269710005" target="pf14345269710006" source="pf14345269710004" outcome="success" fromaction="#{controllerOrdine.cercaOrdine(ord.id)}"/>
+  <links id="pf14345269710003" target="pf14345269710002" source="pf14345269710007" outcome="success" fromaction="#{controllerOrdine.ordiniCliente()}"/>
+  <links id="pf14345269710009" target="pf143452697100011" source="pf14345269710008" outcome="success"/>
+  <links id="pf143452697100013" target="pf143452697100014" source="pf143452697100012" outcome="success"/>
+  <links id="pf14345269710001" target="pf143446881853815" source="pf143452697100015" outcome="success" fromaction="#{controllerProdotto.listaProdotti()}"/>
+  <links id="pf143452697100016" target="pf143452697100018" source="pf143452697100015" outcome="success" fromaction="#{controllerOrdine.annullaOrdine()}"/>
+  <links id="pf143452697100017" target="pf143452697100019" source="pf143452697100015" outcome="success" fromaction="#{controllerOrdine.chiudiOrdine()}"/>
+  <links id="pf143452697100010" target="pf143452697100011" source="pf14345269710008" outcome="success" fromaction="#{controllerCliente.cercaProdotto(prod.id)}"/>
+  <links id="pf143452697100021" target="pf143452697100022" source="pf143452697100020" outcome="success" fromaction="#{controllerProdotto.listaProdotti()}"/>
+  <links id="pf143452697100023" target="pf143452697100022" source="pf143452697100024" outcome="success"/>
+  <links id="pf143452697100026" target="pf143452697101627" source="pf143452697100025" outcome="success" fromaction="#{controllerProdotto.listaProdotti()}"/>
+  <links id="pf143452697101628" target="pf143452697101627" source="pf143452697101629" outcome="success"/>
+  <links id="pf143452737353931" target="pf143452737353932" source="pf143452737353530" outcome="success" fromaction="#{controllerProdotto.cercaProdotto(prod.id)}"/>
+  <links id="pf143453117557933" target="pf14345269710002" source="pf143452697100020" outcome="success" fromaction="#{controllerOrdine.evadiOrdine()}"/>
 </pageflow:Pageflow>

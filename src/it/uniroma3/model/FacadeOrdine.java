@@ -53,6 +53,14 @@ public class FacadeOrdine {
 		return this.em.find(Ordine.class, id);
 	}
 	
+	public void evadiOrdine(Long id){
+		Ordine ordine = this.em.find(Ordine.class, id);
+		ordine.setDataEvasione();
+		for(RigaOrdine ro: 	ordine.getRigheOrdine()){
+			ro.getProdotto().riduciQtaMagazzino(ro.getQtaOrdinata());
+		}	
+	}
+	
 	public void rimuoviOrdine(Long id){
 		Ordine ordine = this.em.find(Ordine.class, id);
 		this.em.remove(ordine);

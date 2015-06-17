@@ -10,13 +10,13 @@
 <h:body>
 	<div class="container-fluid">
 		<h1>Back To The Future E-Commerce for Fans</h1>
-		<ul>
-			<li><h:link value="Login Cliente" outcome="loginCliente" /></li>
-			<li><h:link value="Login Amministratore" outcome="operazioniAdmin.xhtml" /></li>
-			<li><h:form>
-					<h:link value="Catalogo Prodotti" outcome="catalogoProdotti.xhtml">#{controllerProdotto.listaProdotti()}</h:link>
-				</h:form></li>
-		</ul>
+
+			<div><h:link value="Login Cliente" outcome="loginCliente" /></div>
+			<div><h:link value="Login Amministratore" outcome="operazioniAdmin.xhtml" /></div>
+			<div><h:form>
+					<h:commandLink action="#{controllerProdotto.listaProdotti()}" value="Catalogo Prodotti"></h:commandLink>
+				</h:form></div>
+
 	</div>
 </h:body>
 </html>

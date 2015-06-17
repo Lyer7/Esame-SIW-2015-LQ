@@ -1,0 +1,403 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.4.1
+-- Dumped by pg_dump version 9.4.1
+-- Started on 2015-06-17 12:39:17
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 2054 (class 1262 OID 65874)
+-- Dependencies: 2053
+-- Name: siw; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON DATABASE siw IS 'DataBase for SIW-Project-2015 by Liye Lin and Alessio Quattrocchi.';
+
+
+--
+-- TOC entry 180 (class 3079 OID 11855)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2057 (class 0 OID 0)
+-- Dependencies: 180
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 172 (class 1259 OID 65875)
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE cliente (
+    email character varying(255) NOT NULL,
+    cognome character varying(255) NOT NULL,
+    datadinascita date,
+    datadiregistrazione timestamp without time zone NOT NULL,
+    id bigint,
+    nome character varying(255) NOT NULL,
+    password character varying(255) NOT NULL,
+    indirizzo_id bigint NOT NULL
+);
+
+
+ALTER TABLE cliente OWNER TO postgres;
+
+--
+-- TOC entry 173 (class 1259 OID 65883)
+-- Name: fornitore; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE fornitore (
+    id bigint NOT NULL,
+    email character varying(255) NOT NULL,
+    partitaiva character varying(255) NOT NULL,
+    telefono character varying(255) NOT NULL,
+    indirizzo_id bigint
+);
+
+
+ALTER TABLE fornitore OWNER TO postgres;
+
+--
+-- TOC entry 174 (class 1259 OID 65891)
+-- Name: fornitore_prodotto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE fornitore_prodotto (
+    fornitore_id bigint,
+    prodotti_id bigint
+);
+
+
+ALTER TABLE fornitore_prodotto OWNER TO postgres;
+
+--
+-- TOC entry 175 (class 1259 OID 65894)
+-- Name: indirizzo; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE indirizzo (
+    id bigint NOT NULL,
+    citta character varying(255) NOT NULL,
+    codicepostale character varying(255) NOT NULL,
+    regione character varying(255) NOT NULL,
+    stato character varying(255) NOT NULL,
+    via character varying(255) NOT NULL
+);
+
+
+ALTER TABLE indirizzo OWNER TO postgres;
+
+--
+-- TOC entry 176 (class 1259 OID 65902)
+-- Name: openjpa_sequence_table; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE openjpa_sequence_table (
+    id smallint NOT NULL,
+    sequence_value bigint
+);
+
+
+ALTER TABLE openjpa_sequence_table OWNER TO postgres;
+
+--
+-- TOC entry 177 (class 1259 OID 65907)
+-- Name: ordine; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE ordine (
+    id bigint NOT NULL,
+    dataapertura timestamp without time zone NOT NULL,
+    datachiusura timestamp without time zone,
+    dataevasione timestamp without time zone,
+    cliente_email character varying(255)
+);
+
+
+ALTER TABLE ordine OWNER TO postgres;
+
+--
+-- TOC entry 178 (class 1259 OID 65912)
+-- Name: prodotto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE prodotto (
+    id bigint NOT NULL,
+    codice character varying(255) NOT NULL,
+    descrizione character varying(2000),
+    nome character varying(255) NOT NULL,
+    prezzo real,
+    qtamagazzino integer
+);
+
+
+ALTER TABLE prodotto OWNER TO postgres;
+
+--
+-- TOC entry 179 (class 1259 OID 65920)
+-- Name: rigaordine; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE rigaordine (
+    id bigint NOT NULL,
+    prezzounitario real NOT NULL,
+    qtaordinata integer NOT NULL,
+    ordine_id bigint,
+    prodotto_id bigint
+);
+
+
+ALTER TABLE rigaordine OWNER TO postgres;
+
+--
+-- TOC entry 2041 (class 0 OID 65875)
+-- Dependencies: 172
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY cliente (email, cognome, datadinascita, datadiregistrazione, id, nome, password, indirizzo_id) FROM stdin;
+default@default.it	default	2015-01-01	2015-06-16 17:41:35.549	51	default	default	101
+\.
+
+
+--
+-- TOC entry 2042 (class 0 OID 65883)
+-- Dependencies: 173
+-- Data for Name: fornitore; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY fornitore (id, email, partitaiva, telefono, indirizzo_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2043 (class 0 OID 65891)
+-- Dependencies: 174
+-- Data for Name: fornitore_prodotto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY fornitore_prodotto (fornitore_id, prodotti_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 2044 (class 0 OID 65894)
+-- Dependencies: 175
+-- Data for Name: indirizzo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY indirizzo (id, citta, codicepostale, regione, stato, via) FROM stdin;
+101	default	default	default	default	default
+\.
+
+
+--
+-- TOC entry 2045 (class 0 OID 65902)
+-- Dependencies: 176
+-- Data for Name: openjpa_sequence_table; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY openjpa_sequence_table (id, sequence_value) FROM stdin;
+0	851
+\.
+
+
+--
+-- TOC entry 2046 (class 0 OID 65907)
+-- Dependencies: 177
+-- Data for Name: ordine; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY ordine (id, dataapertura, datachiusura, dataevasione, cliente_email) FROM stdin;
+701	2015-06-17 11:40:25.797	2015-06-17 11:43:01.36	\N	default@default.it
+751	2015-06-17 11:47:19.729	2015-06-17 11:47:28.493	\N	default@default.it
+752	2015-06-17 11:50:00.345	2015-06-17 11:50:14.137	\N	default@default.it
+\.
+
+
+--
+-- TOC entry 2047 (class 0 OID 65912)
+-- Dependencies: 178
+-- Data for Name: prodotto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY prodotto (id, codice, descrizione, nome, prezzo, qtamagazzino) FROM stdin;
+801	DMC-12	La DMC-12 (conosciuta anche semplicemente come la DeLorean, dato che fu la sola automobile prodotta dalla società) era caratterizzata da porte ad ali di gabbiano e dalla carrozzeria di acciaio inossidabile non verniciato. Vennero prodotti circa 9 200 esemplari di DMC-12.\r\n\r\nLa vettura divenne celebre in tutto il mondo per la sua apparizione nella trilogia cinematografica Ritorno al futuro di Robert Zemeckis, nella quale veniva usata dal Dr. Emmett "Doc" Brown come base per la macchina del tempo da lui ideata.\r\n(fonte: Wikipedia)	DeLorean	50000	3
+802	FLC51955	Il flusso canalizzatore (nell'originale flux capacitor, nella serie animata tradotto più fedelmente in condensatore di flusso) è il dispositivo fondamentale per viaggiare nel tempo. Esso è situato dietro i sedili della DeLorean e appare come un incrocio a "Y" di tre tubicini, sistemato in uno scompartimento rettangolare.\r\n\r\nOriginariamente Doc ha concepito l'idea il 5 novembre 1955, mentre appendeva un orologio in piedi sul water. La porcellana era bagnata e così scivolò battendo forte la testa sul lavandino; non appena riprese i sensi ebbe una visione, un'immagine scolpita nella testa, un immagine del flusso canalizzatore. Quando Doc mostra a Marty il congegno nel 1985, racconta che gli ci sono voluti 30 anni e tutto il suo patrimonio per realizzare l'invenzione.\r\n(fonte: Wikipedia)	Flusso Canalizzatore	40000	10
+803	RB750	Ibanez Roadstar II Series 1985 con bloccacorde e regolazione accordatura al ponte, leva vibrato.\r\n\r\nnb: Utilizzata da Marty McFly.	Ibanez Roadstar II	599	100
+804	NKAM15	Scarpe con tanto di led luminoso e sistema di autolacci.\r\n\r\nnb: come quelle usate da Marty MacFly nel 2015.	Nike Air Mag 2015	299	200
+805	HHENDO1	L'Hoverboard (detto anche volopattino) è uno skateboard fluttuante senza ruote.\r\n\r\nnb: come quelle usate da Marty MacFly nel 2015.	Hoverboard Hendo 	250000	5
+806	PUVII	Pu(VII), (rosso scuro). Lo ione eptavalente è raro e preparato solo in condizioni di estrema ossidazione.\r\n1,21 gigawatt.\r\n\r\nnb: usato per alimentare la DeLorean.	Plutonio VII 1L	59	80
+\.
+
+
+--
+-- TOC entry 2048 (class 0 OID 65920)
+-- Dependencies: 179
+-- Data for Name: rigaordine; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY rigaordine (id, prezzounitario, qtaordinata, ordine_id, prodotto_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1912 (class 2606 OID 65882)
+-- Name: cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY cliente
+    ADD CONSTRAINT cliente_pkey PRIMARY KEY (email);
+
+
+--
+-- TOC entry 1915 (class 2606 OID 65890)
+-- Name: fornitore_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY fornitore
+    ADD CONSTRAINT fornitore_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1920 (class 2606 OID 65901)
+-- Name: indirizzo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY indirizzo
+    ADD CONSTRAINT indirizzo_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1922 (class 2606 OID 65906)
+-- Name: openjpa_sequence_table_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY openjpa_sequence_table
+    ADD CONSTRAINT openjpa_sequence_table_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1925 (class 2606 OID 65911)
+-- Name: ordine_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY ordine
+    ADD CONSTRAINT ordine_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1927 (class 2606 OID 65919)
+-- Name: prodotto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY prodotto
+    ADD CONSTRAINT prodotto_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1931 (class 2606 OID 65924)
+-- Name: rigaordine_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY rigaordine
+    ADD CONSTRAINT rigaordine_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 1913 (class 1259 OID 65925)
+-- Name: i_cliente_indirizzo; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_cliente_indirizzo ON cliente USING btree (indirizzo_id);
+
+
+--
+-- TOC entry 1916 (class 1259 OID 65926)
+-- Name: i_forntor_indirizzo; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_forntor_indirizzo ON fornitore USING btree (indirizzo_id);
+
+
+--
+-- TOC entry 1917 (class 1259 OID 65927)
+-- Name: i_frntdtt_element; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_frntdtt_element ON fornitore_prodotto USING btree (prodotti_id);
+
+
+--
+-- TOC entry 1918 (class 1259 OID 65928)
+-- Name: i_frntdtt_fornitore_id; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_frntdtt_fornitore_id ON fornitore_prodotto USING btree (fornitore_id);
+
+
+--
+-- TOC entry 1923 (class 1259 OID 65929)
+-- Name: i_ordine_cliente; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_ordine_cliente ON ordine USING btree (cliente_email);
+
+
+--
+-- TOC entry 1928 (class 1259 OID 65930)
+-- Name: i_rgordin_ordine; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_rgordin_ordine ON rigaordine USING btree (ordine_id);
+
+
+--
+-- TOC entry 1929 (class 1259 OID 65931)
+-- Name: i_rgordin_prodotto; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX i_rgordin_prodotto ON rigaordine USING btree (prodotto_id);
+
+
+--
+-- TOC entry 2056 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2015-06-17 12:39:17
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -6,9 +6,9 @@
 	<navigation-rule>
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{controllerProdotto.listinoProdotti()}</from-action>
+			<from-action>#{controllerProdotto.listaProdotti()}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/faces/listinoProdotti.xhtml</to-view-id>
+			<to-view-id>/faces/catalogoProdotti.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -46,7 +46,7 @@
 	<navigation-rule>
 		<from-view-id>/operazioniCliente.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{controllerOrdine.listinoOrdiniCliente()}</from-action>
+			<from-action>#{controllerOrdine.ordiniCliente()}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/listinoOrdiniCliente.xhtml</to-view-id>
 		</navigation-case>
@@ -62,7 +62,7 @@
 	<navigation-rule>
 		<from-view-id>/dettagliOrdineCliente.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{controllerOrdine.listinoOrdiniCliente()}</from-action>
+			<from-action>#{controllerOrdine.ordiniCliente()}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/listinoOrdiniCliente.xhtml</to-view-id>
 		</navigation-case>
@@ -75,11 +75,11 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/listinoProdotti.xhtml</from-view-id>
+		<from-view-id>/catalogoProdotti.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{controllerProdotto.cercaProdotto(prod.id)}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/faces/dettagliProdotto.xhtml</to-view-id>
+			<to-view-id>/faces/dettagliProdottoOspite.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -99,7 +99,7 @@
 	<navigation-rule>
 		<from-view-id>/carrello.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{controllerProdotto.listinoProdotti()}</from-action>
+			<from-action>#{controllerProdotto.listaProdotti()}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/listinoProdottiPerOrdine.xhtml</to-view-id>
 		</navigation-case>
@@ -109,7 +109,7 @@
 			<to-view-id>/faces/ordineAnnullato.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
-			<from-action>#{controllerOrdine.terminaOrdine()}</from-action>
+			<from-action>#{controllerOrdine.chiudiOrdine()}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/ordiniCliente.xhtml</to-view-id>
 		</navigation-case>
@@ -126,13 +126,13 @@
 		<from-view-id>/dettagliProdotto.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
-			<to-view-id>/faces/listinoProdotti.xhtml</to-view-id>
+			<to-view-id>/faces/catalogoProdotti.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
 		<from-view-id>/operazioniAdmin.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{controllerProdotto.listinoProdotti()}</from-action>
+			<from-action>#{controllerProdotto.listaProdotti()}</from-action>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/listinoProdottiAdmin.xhtml</to-view-id>
 		</navigation-case>
@@ -142,6 +142,22 @@
 		<navigation-case>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/faces/listinoProdottiAdmin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+			<navigation-rule>
+		<from-view-id>/operazioniAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerOrdine.listaTuttiOrdini()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/listinoOrdini.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+		<navigation-rule>
+		<from-view-id>/dettagliOrdineAdmin.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{controllerOrdine.evadiOrdine()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/faces/ordineEvaso.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

@@ -54,7 +54,7 @@ public class ControllerOrdine {
 		return this.getCarrello();
 	}
 	
-	public String tuttiOrdini(){
+	public String listaTuttiOrdini(){
 		this.tuttiOrdini = this.facadeOrdine.tuttiOrdini();
 		return "success";
 	}
@@ -62,6 +62,11 @@ public class ControllerOrdine {
 	public String ordiniCliente(){
 		this.cliente = this.controllerCliente.getCliente();
 		this.tuttiOrdini = this.facadeOrdine.ordiniCliente(this.cliente.getEmail());
+		return "success";
+	}
+	
+	public String evadiOrdine(){
+		this.facadeOrdine.evadiOrdine(this.ordine.getId());
 		return "success";
 	}
 	

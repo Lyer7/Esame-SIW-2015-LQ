@@ -2,40 +2,40 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 
-	<title>Carrello Prodotti</title>
+	<title>Il Mio Ordine</title>
 	<meta charset="utf-8"></meta>
 	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 	<link href="bootstrap.css" rel="stylesheet" type="text/css"></link>
 </h:head>
 <h:body>
 
-	<h1>Dettagli ordine</h1>
+	<h1>Dettagli Ordine</h1>
 	<h:dataTable value="#{controllerOrdine.righeOrdine}" var="riga"
 		styleClass="order-table" headerClass="order-table-header"
 		rowClasses="order-table-odd-row,order-table-even-row">
 
 		<h:column>
-			<f:facet name="header">Nome      </f:facet>
+			<f:facet name="header">Nome</f:facet>
 				#{riga.prodotto.nome}
 		</h:column>
 		<h:column>
-			<f:facet name="header">Codice      </f:facet>
+			<f:facet name="header">Codice</f:facet>
 				#{riga.prodotto.codice}
     	</h:column>
 		<h:column>
-			<f:facet name="header">Prezzo      </f:facet>
+			<f:facet name="header">Prezzo</f:facet>
 				#{riga.prezzoUnitario}
     	</h:column>
 		<h:column>
-			<f:facet name="header">Quantit&#224; Ordinata      </f:facet>
+			<f:facet name="header">Quantit&#224; Ordinata</f:facet>
 				#{riga.qtaOrdinata}
     	</h:column>
 	</h:dataTable>
 	<h:form>
-		<h:commandButton value="Torna agli ordini" action="#{controllerOrdine.listinoOrdiniCliente()}"></h:commandButton>
+		<h:commandButton value="Torna agli ordini" action="#{controllerOrdine.ordiniCliente()}"></h:commandButton>
 	</h:form>
 	<div>
-		<h:button value="Torna alla home page" outcome="operazioniCliente"></h:button>
+		<h:button value="Torna alla Home page" outcome="operazioniCliente"></h:button>
 	</div>
 </h:body>
 </html>
