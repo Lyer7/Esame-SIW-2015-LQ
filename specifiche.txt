@@ -1,37 +1,39 @@
-Progetto Avanzato Siw 2015 e-commerce, Liye Lin & Alessio Quattrocchi
+Progetto Avanzato Siw 2015 E-commerce, Liye Lin & Alessio Quattrocchi (Nome Gruppo: BackToTheRequest)
 
-progetto sviluppato con:
--framework JSF
--Bootstrap
--Cura dell'interfaccia utente
+Progetto sviluppato con:
+- Framework JSF
+- Bootstrap
+- Cura dell'Interfaccia Utente
 
 
-descrizione testuale dei casi d'uso:
+Descrizione Testuale dei casi d'uso:
 
 UC1: consulta listino
 l'utente non autenticato, dalla pagina "index.xhtml", può consultare il catalogo dei prodotti, tramite un link che reindirizza sulla pagina "catalogoProdotti.xhtml", da questa pagina, si può selezionare uno specifico prodotto, di cui vengono mostrati i dettagli, su una pagina "dettagliProdottoOspite.xhtml", in questa pagina questa pagina, non essendo autenticati, non si può ordinare il prodotto.
 
 UC2: effettua un ordine
-per soddisfare questo caso d'uso, dalla home l'utente clicca sul link per il login cliente (la pagina "loginClinte.xhtml"), dove si può autenticare o registrare.
-Una volta autenticati correttamente, si accede all'area del cliente, dove si può creare un ordine, viene mostrato il catalogo dei prodotti, scegliendo un prodotto, si potrà visualizzare i dettagli scegliere la quantità da ordinare, la scelta effettuata viene inserita nella riga dell'ordine, successivamente si può annullare l'ordine (estensione del caso d'uso) o confermarlo.
+per soddisfare questo caso d'uso, dalla home l'utente clicca sul link per il login cliente (la pagina "loginCliente.xhtml"), dove si può autenticare o registrare.
+Una volta autenticati correttamente, si accede all'area del cliente, dove si può creare un ordine, viene mostrato il catalogo dei prodotti, scegliendo un prodotto, si potrà  visualizzare i dettagli scegliere la quantità da ordinare, la scelta effettuata viene inserita nella riga dell'ordine, successivamente si può annullare l'ordine (estensione del caso d'uso) o confermarlo.
 
 UC3: consulta i propri ordini
 
+Un Cliente autenticato può selezionare dalla sua Area Cliente l'opzione Consulta i Tuoi Ordini, che mostra una tabella di tutti gli Ordini effettuati dal Cliente.
+Bug: l'Ordine viene registrato correttamente nel Database, ma non viene mostrato nella tabella della pagina I Tuoi Ordini.(problema navigation rule)
 
-
-
-UC4: iserimento prodotti nel catalogo
+UC4: inserimento prodotti nel catalogo
 
 dalla pagina di home, l'amministratore si può autenticare tramite apposito link.
-l'amministratore sceglie di aggiungere un nuovo prodotto al catalogo, specificandone i dettagli, premendo il bottone "invia" il sistema registra correttamente il prodotto nel DB.
+l'amministratore sceglie di aggiungere un nuovo prodotto al catalogo, specificandone i dettagli, premendo il bottone "invia" il sistema registra correttamente il prodotto nel DataBase.
 L'amministratore può ripetere questa operazione per aggiungere altri prodotti.
 
 UC5  &  UC6: recupera indirizzo cliente
 
-l'amministratore dalla pagina "operazioniAdmin.xhtm" può decidere di consultare tutti gli ordini presenti nel sistema. 
-bug, gli ordini sono presenti nel db ma non vengono visualizzati nella pagina (problema navigation rule)
+l'amministratore dalla pagina "operazioniAdmin.xhtml" può decidere di consultare tutti gli ordini presenti nel sistema. 
+Bug: gli ordini sono presenti nel db ma non vengono visualizzati nella pagina (problema navigation rule)
 previsione di funzionamento, cliccando su un ordine mostrato, si visualizzano i dettagli di quel determinato ordine, l'amministratore da qui può scegliere di visualizzare i dettagli del cliente, oppure evadere l'ordine (UC6) (questa operazine decrementa la quantità in magazzino e riconduce alla pagina di evasione avvenuta).
-nb: si è considerata la data di evasione uguale a quella di spedizione.
+nb: è stata considerata la data di evasione uguale a quella di spedizione.
+
+
 
 
 
